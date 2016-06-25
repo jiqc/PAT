@@ -31,7 +31,7 @@ void Dijkstra(int outset) {
 				min = shortest[j];
 			}
 		}
-		//if (min > D) {//sometimes min maybe update in next step;
+		//if (min > D) {//sometimes min may be the distance to other gas stop;
 		                //so it's not necessary to make min to be key point;
 		//	return;
 		//}
