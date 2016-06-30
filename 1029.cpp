@@ -1,4 +1,4 @@
-//The second & third procedure has been AC.
+//The first, second & third procedure has been AC.
 /****************************************************/
 
 
@@ -33,8 +33,8 @@ long int findkth(bool ab, int pos1, int m, int pos2, int n, int k) {
 	int p1 = k / 2 < m ? k / 2 : m;
 	int p2 = k - p1;
 	if (ab) {
-		if (a[p1 - 1] == b[p2 - 1])return a[p1 - 1];
-		if (a[p1 - 1] < b[p2 - 1]) {
+		if (a[pos1 + p1 - 1] == b[pos2 + p2 - 1])return a[pos1 + p1 - 1];
+		if (a[pos1 + p1 - 1] < b[pos2 + p2 - 1]) {
 			return findkth(ab, pos1 + p1, m - p1, pos2, p2, k - p1);
 		}
 		else {
@@ -42,8 +42,8 @@ long int findkth(bool ab, int pos1, int m, int pos2, int n, int k) {
 		}
 	}
 	else {
-		if (b[p1 - 1] == a[p2 - 1])return b[p1 - 1];
-		if (b[p1 - 1] < a[p2 - 1]) {
+		if (b[pos1 + p1 - 1] == a[pos2 + p2 - 1])return b[pos1 + p1 - 1];
+		if (b[pos1 + p1 - 1] < a[pos2 + p2 - 1]) {
 			return findkth(ab, pos1 + p1, m - p1, pos2, p2, k - p1);
 		}
 		else {
