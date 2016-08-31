@@ -1,10 +1,11 @@
 #include <cstdio>
 #include <cstdlib>
+#include <vector>
 using namespace std;
 
 int main() {
 	int a, b, sum;
-	int output[3];
+	vector<int> output;
 
 	scanf_s("%d %d", &a, &b);
 
@@ -18,18 +19,18 @@ int main() {
 			printf("-");
 			sum = -sum;
 		}
-		int i = 2;
+		int i = 0;
 		while (sum != 0) {
-			output[i] = sum % 1000;
+			output.push_back(sum % 1000);
 			sum = sum / 1000;
-			i--;
-		}
-		i++;
-		printf("%d", output[i]);
-		i++;
-		while (i < 3) {
-			printf(",%03d", output[i]);
 			i++;
+		}
+		i--;
+		printf("%d", output[i]);
+		i--;
+		while (i >=0) {
+			printf(",%03d", output[i]);
+			i--;
 		}
 	}
 	printf("\n");
