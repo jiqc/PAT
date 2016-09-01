@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <queue>
 using namespace std;
 
 //you may use queue as windows
@@ -36,21 +37,19 @@ public:
 
 class ventana {
 public:
-	int waitinqueue;
+	queue<customer> waitinqueue;
 	int M;
 	int shour;
 	int sminute;
 	int hour;
 	int minute;
 	ventana() {
-		waitinqueue = 0;
 		shour = 7;
 		sminute = 0;
 		hour = 8;
 		minute = 0;
 	}
 	ventana(int t) {
-		waitinqueue = 0;
 		shour = 7;
 		sminute = 0;
 		hour = 8;
@@ -59,11 +58,18 @@ public:
 	}
 	~ventana(){}
 	bool need() {
-		return waitinqueue < M;
+		return waitinqueue.size() < M;
 	}
 	void addprocess(customer &A) {
-		shour = hour;
-		sminute = minute;
+		if (waitinqueue.empty()) {
+			shour = hour;
+			sminute = minute;
+		}
+		else {
+            shour = waitinqueue.front().hour;
+		    sminute = waitinqueue.front().minute;
+		    waitinqueue.pop();
+		}
 		if (hour >= 17) {
 			A.service = false;
 		}
@@ -84,6 +90,7 @@ public:
 				A.minute = minute;
 			//}
 		}
+		waitinqueue.push(A);
 	}
 };
 
