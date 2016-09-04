@@ -1,4 +1,4 @@
-//when i use vector it surplus the time...
+/*when i use vector it surplus the time...
 #include<cstdio>
 #include<map>
 using namespace std;
@@ -25,5 +25,37 @@ int main() {
 	}	
 
 	system("pause");
+	return 0;
+}
+*/
+/********************************************/
+#include<cstdio>
+using namespace std;
+
+int main(){
+	int M,N;
+	int temp;
+	int cnt;
+	int dmt;
+	scanf("%d %d",&M,&N);
+	
+	dmt=-1;
+	cnt=0;
+	for(int i=0;i<M;i++){
+		for(int j=0;j<N;j++){
+			scanf("%d", &temp);
+			if(cnt==0){
+				dmt=temp;
+				cnt++;
+			}else{
+				if(dmt==temp){
+					cnt++;
+				}else{
+					cnt--;
+				}
+			}
+		}
+	}
+	printf("%d\n",dmt);
 	return 0;
 }
