@@ -106,14 +106,14 @@ int main() {
 			}
 		}
 	}
-
+//for debug;
 	for (int i = 0; i <= N; i++) {
 		for (int j = 0; j <= M; j++) {
 			printf("%d ", dp[i][j]);
 		}
 		printf("\n");
 	}
-
+//for debug
 	for (int i = 0; i <= N; i++) {
 		for (int j = 0; j <= M; j++) {
 			printf("%d ", (int)included[j][i]);
